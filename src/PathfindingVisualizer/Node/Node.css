@@ -3,77 +3,76 @@
     height: 25px;
     outline: 1px solid rgb(175, 216, 248);
     display: inline-block;
+    background-color: rgba(255, 255, 255, 0.1);
+    /* Default background color */
+    transition: background-color 0.3s ease, transform 0.3s ease, opacity 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    opacity: 0.8;
+}
+
+.node:hover {
+    opacity: 1;
 }
 
 .node-finish {
-    background-color: red;
+    background-color: rgb(187, 47, 47);
+    /* Dark red */
 }
 
 .node-start {
-    background-color: green;
+    background-color: rgb(67, 160, 71);
+    /* Dark green */
 }
 
 .node-visited {
-    animation-name: visitedAnimation;
-    animation-duration: 1.5s;
-    animation-timing-function: ease-out;
-    animation-delay: 0;
-    animation-direction: alternate;
-    animation-iteration-count: 1;
-    animation-fill-mode: forwards;
-    animation-play-state: running;
+    animation: pulse 1.5s ease-out forwards;
 }
 
-@keyframes visitedAnimation {
+@keyframes pulse {
     0% {
-        transform: scale(0.3);
-        background-color: rgba(0, 0, 66, 0.75);
-        border-radius: 100%;
+        transform: scale(0.8);
+        background-color: rgba(54, 162, 235, 0.75);
+        /* Dark blue */
+        box-shadow: 0 0 5px rgba(54, 162, 235, 0.75);
     }
 
     50% {
-        background-color: rgba(17, 104, 217, 0.75);
-    }
-
-    75% {
         transform: scale(1.2);
-        background-color: rgba(0, 217, 159, 0.75);
+        background-color: rgba(241, 196, 15, 0.75);
+        /* Dark yellow */
+        box-shadow: 0 0 10px rgba(241, 196, 15, 0.75);
     }
 
     100% {
         transform: scale(1);
-        background-color: rgba(0, 190, 218, 0.75);
+        background-color: rgba(231, 76, 60, 0.75);
+        /* Dark red */
+        box-shadow: 0 0 5px rgba(231, 76, 60, 0.75);
     }
 }
 
 .node-wall {
-    background-color: rgb(12, 53, 71);
+    background-color: rgb(44, 62, 80);
+    /* Dark blue-gray */
 }
 
 .node-shortest-path {
-    animation-name: shortestPath;
-    animation-duration: 1.5s;
-    animation-timing-function: ease-out;
-    animation-delay: 0;
-    animation-direction: alternate;
-    animation-iteration-count: 1;
-    animation-fill-mode: forwards;
-    animation-play-state: running;
+    animation: gradientFill 1.5s ease-out forwards;
 }
 
-@keyframes shortestPath {
+@keyframes gradientFill {
     0% {
-        transform: scale(0.6);
-        background-color: rgb(255, 254, 106);
+        background: linear-gradient(to bottom right, rgb(231, 76, 60), rgb(211, 84, 0));
+        /* Gradient from dark red to orange */
     }
 
     50% {
-        transform: scale(1.2);
-        background-color: rgb(255, 254, 106);
+        background: linear-gradient(to bottom right, rgb(241, 196, 15), rgb(235, 149, 50));
+        /* Gradient from dark yellow to light orange */
     }
 
     100% {
-        transform: scale(1);
-        background-color: rgb(255, 254, 106);
+        background: linear-gradient(to bottom right, rgb(46, 204, 113), rgb(39, 174, 96));
+        /* Gradient from dark green to green */
     }
 }

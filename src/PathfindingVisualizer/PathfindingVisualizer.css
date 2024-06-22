@@ -1,3 +1,15 @@
 .grid {
     margin: 100px 0 0;
 }
+
+@media (max-width: 768px) {
+    .grid {
+        margin: 50px 0 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .grid {
+        margin: 20px 0 0;
+    }
+}
